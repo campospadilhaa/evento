@@ -23,6 +23,8 @@ public class Atividade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	private String nome;
+
 	@Column(columnDefinition = "TEXT") // definição de um texto longo, não somente um varchar
 	private String descricao;
 
@@ -42,13 +44,14 @@ public class Atividade {
 
 	}
 
-	public Atividade(Integer id, Categoria categoria, Set<Bloco> listaBloco, String descricao, Double preco) {
+	public Atividade(Integer id, Categoria categoria, String nome, String descricao, Double preco, Set<Bloco> listaBloco) {
 
 		this.id = id;
 		this.categoria = categoria;
-		this.listaBloco = listaBloco;
+		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
+		this.listaBloco = listaBloco;
 	}
 
 	public Integer getId() {
@@ -57,6 +60,14 @@ public class Atividade {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Categoria getCategoria() {
